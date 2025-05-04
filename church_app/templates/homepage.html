@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Church Management{% endblock title %}
+
+{% block content %}
+<h1 class="text-center mt-5">WELCOME TO CHURCH MANAGEMENT SYSTEM</h1>
+
+<div class="d-flex flex-column align-items-center mt-4 gap-3">
+    <a href="/admin-login/" class="btn btn-primary btn-lg w-75">Admin Login</a>
+    <a href="/add-member/" class="btn btn-success btn-lg w-75">Add Member</a>
+    <a href="/add-first-timer/" class="btn btn-info btn-lg w-75">Add First-Time Visitor</a>
+</div>
+{% endblock content %}

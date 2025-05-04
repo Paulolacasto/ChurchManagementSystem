@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print Church Members</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        @media print {
+            body { visibility: hidden; }
+            #print-section { visibility: visible; position: absolute; top: 0; left: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="print-section">
+    <h2>Church Members</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Date Joined</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.first_name }} {{ member.last_name }}</td>
+                <td>{{ member.age }}</td>
+                <td>{{ member.gender }}</td>
+                <td>{{ member.phone }}</td>
+                <td>{{ member.date_joined }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    window.onload = function() { window.print(); }
+</script>
+
+</body>
+</html>

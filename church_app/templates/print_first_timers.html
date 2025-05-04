@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print First-Time Visitors</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        @media print {
+            body { visibility: hidden; }
+            #print-section { visibility: visible; position: absolute; top: 0; left: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="print-section">
+    <h2>First-Time Visitors</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Invited By</th>
+                <th>Date Visited</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for visitor in first_timers %}
+            <tr>
+                <td>{{ visitor.first_name }} {{ visitor.last_name }}</td>
+                <td>{{ visitor.phone }}</td>
+                <td>{{ visitor.invited_by }}</td>
+                <td>{{ visitor.date_visited }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    window.onload = function() { window.print(); }
+</script>
+
+</body>
+</html>

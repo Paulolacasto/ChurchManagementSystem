@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">Admin Login</h1>
+
+<!-- Display error messages above the form -->
+{% if error_message %}
+    <div class="alert alert-danger text-center">
+        {{ error_message }}
+    </div>
+{% endif %}
+
+<form method="post" class="border p-4 rounded bg-light shadow">
+    {% csrf_token %}
+    
+    <div class="form-group mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" name="username" class="form-control" autocomplete="off" required>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" autocomplete="new-password" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+
+    <div class="text-center mt-3">
+        <a href="/password-reset/" class="text-decoration-none">Forgot Password?</a>
+    </div>
+</form>
+{% endblock content %}

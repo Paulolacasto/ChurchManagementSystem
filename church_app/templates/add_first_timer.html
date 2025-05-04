@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center fade-in">Add a First-Time Visitor</h1>
+
+{% if success_message %}
+    <div class="alert alert-success text-center fade-in">
+        {{ success_message }}
+    </div>
+{% endif %}
+
+<div class="fade-in">
+    <form method="post" class="border p-4 rounded bg-light shadow">
+        {% csrf_token %}
+        
+        <!-- First Name -->
+        <div class="mb-3">
+            <label for="first_name" class="form-label">First Name:</label>
+            <input type="text" id="first_name" name="first_name" class="form-control" required>
+        </div>
+
+        <!-- Last Name -->
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" class="form-control" required>
+        </div>
+
+        <!-- Address -->
+        <div class="mb-3">
+            <label for="address" class="form-label">Address:</label>
+            <input type="text" id="address" name="address" class="form-control">
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{10}" placeholder="Enter 10-digit number">
+        </div>
+
+        <!-- Invited By -->
+        <div class="mb-3">
+            <label for="invited_by" class="form-label">Invited By:</label>
+            <input type="text" id="invited_by" name="invited_by" class="form-control">
+        </div>
+
+        <!-- Born Again Question -->
+        <div class="mb-3">
+            <label class="form-label">Born Again:</label><br>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="born_yes" name="born_again" value="Yes" class="form-check-input" required>
+                <label for="born_yes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="born_no" name="born_again" value="No" class="form-check-input">
+                <label for="born_no" class="form-check-label">No</label>
+            </div>
+        </div>
+
+        <!-- Service Feedback -->
+        <div class="mb-3">
+            <label for="service_feedback" class="form-label">Service Feedback:</label>
+            <textarea id="service_feedback" name="service_feedback" class="form-control" rows="3" placeholder="Tell us what you enjoyed"></textarea>
+        </div>
+
+        <!-- Would Like a Visit -->
+        <div class="mb-3">
+            <label class="form-label">Would Like a Visit:</label><br>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="visit_yes" name="would_like_visit" value="Yes" class="form-check-input" required>
+                <label for="visit_yes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="visit_no" name="would_like_visit" value="No" class="form-check-input">
+                <label for="visit_no" class="form-check-label">No</label>
+            </div>
+        </div>
+
+        <!-- Available for Fellowship -->
+        <div class="mb-3">
+            <label class="form-label">Available for Fellowship:</label><br>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="fellowship_yes" name="available_fellowship" value="Yes" class="form-check-input" required>
+                <label for="fellowship_yes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="fellowship_no" name="available_fellowship" value="No" class="form-check-input">
+                <label for="fellowship_no" class="form-check-label">No</label>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-info w-100">Submit</button>
+    </form>
+</div>
+{% endblock content %}

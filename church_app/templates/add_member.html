@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center fade-in">Add a Church Member</h1>
+
+{% if success_message %}
+    <div class="alert alert-success text-center fade-in">
+        {{ success_message }}
+    </div>
+{% endif %}
+
+<div class="fade-in">
+    <form method="post" class="border p-4 rounded bg-light shadow">
+        {% csrf_token %}
+
+        <!-- First Name -->
+        <div class="mb-3">
+            <label for="first_name" class="form-label">First Name:</label>
+            <input type="text" id="first_name" name="first_name" class="form-control" required>
+        </div>
+
+        <!-- Last Name -->
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" class="form-control" required>
+        </div>
+
+        <!-- Age -->
+        <div class="mb-3">
+            <label for="age" class="form-label">Age:</label>
+            <input type="number" id="age" name="age" class="form-control" min="0" required>
+        </div>
+
+        <!-- Gender -->
+        <div class="mb-3">
+            <label class="form-label">Gender:</label><br>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="gender_male" name="gender" value="Man" class="form-check-input" required>
+                <label for="gender_male" class="form-check-label">Man</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="gender_female" name="gender" value="Woman" class="form-check-input">
+                <label for="gender_female" class="form-check-label">Woman</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="gender_child" name="gender" value="Child" class="form-check-input">
+                <label for="gender_child" class="form-check-label">Child</label>
+            </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{10}" placeholder="Enter 11-digit number" required>
+        </div>
+
+        <!-- Address -->
+        <div class="mb-3">
+            <label for="address" class="form-label">Address:</label>
+            <input type="text" id="address" name="address" class="form-control" required>
+        </div>
+
+        <!-- Date Joined -->
+        <div class="mb-3">
+            <label for="date_joined" class="form-label">Date Joined:</label>
+            <input type="date" id="date_joined" name="date_joined" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Submit</button>
+    </form>
+</div>
+{% endblock content %}

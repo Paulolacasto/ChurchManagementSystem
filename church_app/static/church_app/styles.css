@@ -1,0 +1,30 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+}
+
+.btn {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    width: 250px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.alert-success {
+    transition: opacity 1s;
+}
